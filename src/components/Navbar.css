@@ -154,3 +154,11 @@
   .menu li a:hover {
     text-decoration: underline;
   }
+
+  .socials {
+    margin-top: 90%;
+    margin-left: 20%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }

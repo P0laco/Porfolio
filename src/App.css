@@ -1,8 +1,11 @@
 @font-face {
   font-family: 'Patung';
   src: url('./assets/font/Patung.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url('./assets/font/SourceSansPro-Bold.ttf') format('truetype');
 }
 
 body {
@@ -52,8 +55,13 @@ footer {
   transition: opacity 0.5s ease-in;
 }
 
-.position {
-  font-family: Arial, sans-serif;
+#position {
+  font-family: SourceSansPro, sans-serif;
+  font-size: 20px;
+}
+
+h2{
+  font-family: SourceSansPro, sans-serif;
+  font-size: 30px;
   text-align: center;
-  transform: translate(-50%, -50%);
 }
