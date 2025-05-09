@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'Patung';
+  src: url('./assets/font/Patung.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  justify-content: center;
+}
+
+header{
+  padding-top: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-family: Patung, sans-serif;
+  font-size: larger;
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#welcome {
+  font-family: Patung, sans-serif;
+  font-size: 50px;
+  text-align: center;
+  color: #333;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.fade{
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.fade.show{
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+.position {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
