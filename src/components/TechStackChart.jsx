@@ -33,6 +33,11 @@ export default function TechStackChart() {
           for (const [language, count] of Object.entries(languages)) {
             languageCounts[language] = (languageCounts[language] || 0) + count;
           }
+
+          // Check if the repository contains JSX files
+          if (repo.language === 'JavaScript' && repo.name.includes('jsx')) {
+            languageCounts['JSX'] = (languageCounts['JSX'] || 0) + 1;
+          }
         }
 
         // Prepare data for the chart
@@ -46,6 +51,7 @@ export default function TechStackChart() {
           JavaScript: '#f7df1e', // Yellow
           Java: '#b07219', // Red
           TypeScript: '#3178c6', // Light Blue
+          JSX: '#61dafb', // React Blue
         };
 
         const backgroundColors = labels.map((label) => colorMap[label] || '#cccccc'); // Default to gray if not in colorMap
@@ -91,7 +97,7 @@ export default function TechStackChart() {
   };
 
   return (
-    <div style={{ width: '80%', height: '300px', margin: '0 auto' }}> {/* Adjust height */}
+    <div style={{ width: '80%', height: '300px', margin: '0 auto' }}>
       {chartData ? <Bar data={chartData} options={options} /> : <p>Loading chart...</p>}
     </div>
   );
