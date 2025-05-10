@@ -10,30 +10,31 @@
 
 body {
   margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
   background-color: #f4f4f9;
   color: #333;
-  justify-content: center;
 }
 
 header{
   padding-top: 20px;
-  text-align: center;
+  margin: 0;
+  padding: 0 20px;
 }
 
 h1 {
   font-family: Patung, sans-serif;
   font-size: larger;
   font-size: 50px;
-  text-align: center;
-  margin-bottom: 20px;
+  margin: 0;
+  padding-top: 70px;
 }
 
 #welcome {
   font-family: Patung, sans-serif;
   font-size: 50px;
-  text-align: center;
   color: #333;
+  margin: 0;
 }
 
 section {
@@ -41,27 +42,43 @@ section {
 }
 
 footer {
+  background-color: lightgray;
   text-align: center;
   margin-top: 20px;
 }
 
-.fade{
-  opacity: 0;
-  transition: opacity 0.5s ease-out;
-}
-
-.fade.show{
-  opacity: 1;
-  transition: opacity 0.5s ease-in;
-}
 
 #position {
   font-family: SourceSansPro, sans-serif;
   font-size: 20px;
+  margin: 0;
 }
 
 h2{
   font-family: SourceSansPro, sans-serif;
   font-size: 30px;
   text-align: center;
+}
+
+/* Blinking cursor effect */
+#position span::after {
+  content: "|"; /* The cursor */
+  display: inline-block;
+  font-weight: bold;
+  animation: blink 0.75s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.socials {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }

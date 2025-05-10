@@ -10,6 +10,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 30px;
+  }
+
+li img{
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+  }
+  
+  .hamburger {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    position: relative;
   }
 
   .popup-overlay {
@@ -155,10 +169,10 @@
     text-decoration: underline;
   }
 
-  .socials {
-    margin-top: 90%;
-    margin-left: 20%;
+  .navlist {
     display: flex;
-    gap: 10px;
-    align-items: center;
+    gap: 20px;
+    list-style: none;
+    padding-right: 100px;
+    font-weight: bolder;
   }

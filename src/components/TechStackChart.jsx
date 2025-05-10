@@ -115,7 +115,7 @@ export default function TechStackChart() {
     };
 
     return (
-        <div style={{ width: "80%", height: "300px", margin: "0 auto" }}>
+        <div style={{ width: "80%", height: "300px", margin: "0 auto" ,display: "flex", justifyContent: "center"}}>
             {chartData ? (
                 <Bar
                     data={chartData}
