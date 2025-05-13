@@ -1,6 +1,7 @@
 export default function Welcome() {
 	return (
-		<header id="about">
+		<section id="about">
+			<h3>Hello my name is</h3>
 			<h2 id="name">Miguel Pereira</h2>
 			<p id="position">
 				<span>Full Stack Developer</span>
@@ -53,6 +54,6 @@ export default function Welcome() {
 					</a>
 				</li>
 			</ul>
-		</header>
+		</section>
 	);
 }

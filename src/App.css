@@ -19,9 +19,17 @@ body {
   background-color: white;
 }
 
-header{
+section{
+  height: 100vh;
   margin: 0;
-  padding: 0 20px;
+}
+
+#about{
+  margin: 0;
+  padding: 0 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #name {
@@ -29,7 +37,12 @@ header{
   font-size: larger;
   font-size: 50px;
   margin: 0;
-  padding-top: 70px;
+}
+
+h3 {
+  font-family: SourceSansPro, sans-serif;
+  font-size: 20px;
+  margin: 0;
 }
 
 section {
@@ -50,11 +63,20 @@ footer {
   margin: 0;
 }
 
-#techstack-title, #projects-title{
+#techstack-title, #projects-title, #othertools-title {
   margin: 0;
   font-family: SourceSansPro, sans-serif;
-  font-size: 30px;
+  font-size: 50px;
   text-align: center;
+  padding: 40px;
+}
+
+#othertools{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
 }
 
 /* Blinking cursor effect */
@@ -83,11 +105,21 @@ footer {
 /* Default (light theme) */
 body.light-theme .socials svg {
   fill: #8200CE; /* Default SVG color for light theme */
+  transition: filter 0.3s ease; /* Smooth transition for hover effect */
+}
+
+body.light-theme .socials svg:hover {
+  filter: drop-shadow(0 0 5px #8200CE); /* Change SVG color on hover for light theme */
 }
 
 /* Dark theme */
 body.dark-theme .socials svg {
   fill: #02ABFF; /* Change SVG color to white for dark theme */
+  transition: filter 0.3s ease; /* Smooth transition for hover effect */
+}
+
+body.dark-theme .socials svg:hover {
+  filter: drop-shadow(0 0 5px #02ABFF); /* Change SVG color on hover for dark theme */
 }
 
 span {

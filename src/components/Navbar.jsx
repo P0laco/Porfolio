@@ -19,6 +19,7 @@ export default function Navbar() {
                 // Update all sections with #626161 to black
                 const sections = document.querySelectorAll("section, footer");
                 sections.forEach((section) => {
+                    section.style.transition = "background-color 0.5s ease, color 0.5s ease"; // Add smooth transition
                     if (getComputedStyle(section).backgroundColor === "rgb(98, 97, 97)") {
                         section.style.backgroundColor = "#1D1C1C";
                     }
@@ -37,6 +38,7 @@ export default function Navbar() {
                 // Update all sections with black back to #626161
                 const sections = document.querySelectorAll("section, footer");
                 sections.forEach((section) => {
+                    section.style.transition = "background-color 0.5s ease, color 0.5s ease"; // Add smooth transition
                     if (getComputedStyle(section).backgroundColor === "rgb(29, 28, 28)") {
                         section.style.backgroundColor = "#626161";
                     }
@@ -51,6 +53,7 @@ export default function Navbar() {
 
     // Ensure light theme is set on page load
     useEffect(() => {
+        document.body.style.transition = "background-color 0.5s ease, color 0.5s ease"; // Add smooth transition
         document.body.classList.add("light-theme");
         document.body.classList.remove("dark-theme");
         document.body.style.backgroundColor = "#C9C9C9";
@@ -63,7 +66,10 @@ export default function Navbar() {
     return (
         <nav
             className="navbar"
-            style={{ backgroundColor: navbarBg }} // Dynamic background color
+            style={{
+                backgroundColor: navbarBg,
+                transition: "background-color 0.5s ease, color 0.5s ease", // Add smooth transition
+            }}
         >
             <p id="welcome">Portfolio</p>
             <div>
