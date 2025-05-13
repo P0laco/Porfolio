@@ -3,7 +3,7 @@ import "./Navbar.css"; // Import the CSS file for styling
 
 export default function Navbar() {
     const [duckImage, setDuckImage] = useState("../src/assets/blackDuck.png"); // Initial image
-    const [navbarBg, setNavbarBg] = useState("white"); // Initial navbar background color
+    const [navbarBg, setNavbarBg] = useState("#C9C9C9"); // Initial navbar background color
     const [navbarTextColor, setNavbarTextColor] = useState("black"); // Initial navbar text color
 
     // Combined function to toggle the duck image, navbar background, and page theme
@@ -31,7 +31,7 @@ export default function Navbar() {
                 // Change to black duck and revert theme
                 document.body.classList.add("light-theme");
                 document.body.classList.remove("dark-theme");
-                document.body.style.backgroundColor = "white"; // Change #626161 background to white
+                document.body.style.backgroundColor = "#C9C9C9"; // Change #626161 background to white
                 document.body.style.color = "black"; // Change text color to black
 
                 // Update all sections with black back to #626161
@@ -42,7 +42,7 @@ export default function Navbar() {
                     }
                 });
 
-                setNavbarBg("white"); // Change navbar background to white
+                setNavbarBg("#C9C9C9"); // Change navbar background to white
                 setNavbarTextColor("black"); // Change navbar text color to black
                 return "../src/assets/blackDuck.png";
             }
@@ -53,9 +53,9 @@ export default function Navbar() {
     useEffect(() => {
         document.body.classList.add("light-theme");
         document.body.classList.remove("dark-theme");
-        document.body.style.backgroundColor = "white";
+        document.body.style.backgroundColor = "#C9C9C9";
         document.body.style.color = "black";
-        setNavbarBg("white");
+        setNavbarBg("#C9C9C9");
         setNavbarTextColor("black");
         setDuckImage("../src/assets/blackDuck.png");
     }, []); // Empty dependency array ensures this runs only once on page load
