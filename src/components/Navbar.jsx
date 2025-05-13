@@ -1,138 +1,90 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import "./Navbar.css"; // Import the CSS file for styling
 
 export default function Navbar() {
-	const [isOpen, setIsOpen] = useState(false);
-	const [showPopup, setShowPopup] = useState(false); // State for the popup
-	const [duckImage, setDuckImage] = useState("../src/assets/blackDuck.png"); // Initial image
-	const [navbarBg, setNavbarBg] = useState("white"); // Initial navbar background color
-	const menuRef = useRef(null); // Reference to the menu
+    const [duckImage, setDuckImage] = useState("../src/assets/blackDuck.png"); // Initial image
+    const [navbarBg, setNavbarBg] = useState("white"); // Initial navbar background color
+    const [navbarTextColor, setNavbarTextColor] = useState("black"); // Initial navbar text color
 
-	const toggleMenu = () => {
-		setIsOpen(!isOpen);
-	};
+    // Combined function to toggle the duck image, navbar background, and page theme
+    const toggleDuckAndTheme = () => {
+        setDuckImage((prevImage) => {
+            if (prevImage === "../src/assets/blackDuck.png") {
+                // Change to white duck and update theme
+                document.body.classList.add("dark-theme");
+                document.body.classList.remove("light-theme");
+                document.body.style.backgroundColor = "#626161"; // Change white background to #626161
+                document.body.style.color = "white"; // Change text color to white
 
-	const handleClickOutside = (event) => {
-		if (menuRef.current && !menuRef.current.contains(event.target)) {
-			setIsOpen(false); // Close the menu if clicked outside
-		}
-	};
+                // Update all sections with #626161 to black
+                const sections = document.querySelectorAll("section, footer");
+                sections.forEach((section) => {
+                    if (getComputedStyle(section).backgroundColor === "rgb(98, 97, 97)") {
+                        section.style.backgroundColor = "#1D1C1C";
+                    }
+                });
 
-	const openPopup = () => {
-		setShowPopup(true); // Open the popup
-	};
+                setNavbarBg("#626161"); // Change navbar background to black
+                setNavbarTextColor("white"); // Change navbar text color to white
+                return "../src/assets/whiteDuck.png";
+            } else {
+                // Change to black duck and revert theme
+                document.body.classList.add("light-theme");
+                document.body.classList.remove("dark-theme");
+                document.body.style.backgroundColor = "white"; // Change #626161 background to white
+                document.body.style.color = "black"; // Change text color to black
 
-	const closePopup = () => {
-		setShowPopup(false); // Close the popup
-	};
+                // Update all sections with black back to #626161
+                const sections = document.querySelectorAll("section, footer");
+                sections.forEach((section) => {
+                    if (getComputedStyle(section).backgroundColor === "rgb(29, 28, 28)") {
+                        section.style.backgroundColor = "#626161";
+                    }
+                });
 
-	const toggleDuckImage = () => {
-		setDuckImage((prevImage) => {
-			if (prevImage === "../src/assets/blackDuck.png") {
-				setNavbarBg("black"); // Change navbar background to black
-				return "../src/assets/whiteDuck.png";
-			} else {
-				setNavbarBg("white"); // Change navbar background to white
-				return "../src/assets/blackDuck.png";
-			}
-		});
-	};
+                setNavbarBg("white"); // Change navbar background to white
+                setNavbarTextColor("black"); // Change navbar text color to black
+                return "../src/assets/blackDuck.png";
+            }
+        });
+    };
 
-	useEffect(() => {
-		document.addEventListener("click", handleClickOutside);
-		return () => {
-			document.removeEventListener("click", handleClickOutside);
-		};
-	}, []);
+    // Ensure light theme is set on page load
+    useEffect(() => {
+        document.body.classList.add("light-theme");
+        document.body.classList.remove("dark-theme");
+        document.body.style.backgroundColor = "white";
+        document.body.style.color = "black";
+        setNavbarBg("white");
+        setNavbarTextColor("black");
+        setDuckImage("../src/assets/blackDuck.png");
+    }, []); // Empty dependency array ensures this runs only once on page load
 
-	return (
-		<>
-			<nav
-				className="navbar"
-				ref={menuRef}
-				style={{ backgroundColor: navbarBg }} // Dynamic background color
-			>
-				<div
-					className={`hamburger ${isOpen ? "open" : ""}`}
-					onClick={toggleMenu}
-				>
-					<div className="line"></div>
-					<div className="line"></div>
-					<div className="line"></div>
-				</div>
-				<div>
-					<ul className="navlist">
-						<li><a href="#">About</a></li>
-						<li><a href="#">Projects</a></li>
-						<li><a href="#">TechStack</a></li>
-						<li><a href="#">Contact</a></li>
-						<li>
-							<a
-								href="#"
-								onClick={toggleDuckImage}
-							>
-								<img
-									src={duckImage}
-									alt="duck"
-								/>
-							</a>
-						</li>
-					</ul>
-				</div>
-				<ul className={`menu ${isOpen ? "open" : ""}`}>
-					<li>
-						<img
-							src="../src/assets/eu.jpg"
-							alt="me"
-							className="myimage"
-						/>
-					</li>
-					<li>
-						<a
-							href="#about"
-							onClick={openPopup}
-						>
-							About
-						</a>
-					</li>
-					<li>
-						<a href="#projects">Projects</a>
-					</li>
-					<li>
-						<a href="#contact">Contact</a>
-					</li>
-				</ul>
-			</nav>
-
-			{showPopup && (
-				<div
-					className="popup-overlay"
-					onClick={closePopup}
-				>
-					<div
-						className="popup-content"
-						onClick={(e) => e.stopPropagation()}
-					>
-						<button
-							className="close-button"
-							onClick={closePopup}
-						>
-							X
-						</button>
-						<h2>About Me</h2>
-						<img
-							src="../src/assets/myimage.png"
-							alt="About Me"
-							className="popup-image"
-						/>
-						<p>
-							Hi, I'm Miguel! I'm a passionate full-stack developer with a
-							preference for front-end development. I love creating beautiful
-							and functional websites that provide great user experiences.
-						</p>
-					</div>
-				</div>
-			)}
-		</>
-	);
+    return (
+        <nav
+            className="navbar"
+            style={{ backgroundColor: navbarBg }} // Dynamic background color
+        >
+            <p id="welcome">Portfolio</p>
+            <div>
+                <ul className="navlist" style={{ color: navbarTextColor }}>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#techstack">TechStack</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <a
+                            href="#"
+                            onClick={(event) => {
+                                event.preventDefault(); // Prevent the page from scrolling to the top
+                                toggleDuckAndTheme(); // Call the theme toggle function
+                            }}
+                        >
+                            <img src={duckImage} alt="duck" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    );
 }

@@ -28,8 +28,8 @@ export default function Projects() {
 	}, []);
 
 	return (
-		<section className="projects-section">
-			<h2>Projects</h2>
+		<section className="projects-section" id="projects">
+			<h2 id="projects-title">Latest<span>Projects</span></h2>
 			{loading ? (
 				<p>Loading projects...</p>
 			) : repos.length > 0 ? (

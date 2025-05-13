@@ -12,10 +12,7 @@ function App() {
 			<div>
 				<Welcome />
 				<Projects />
-				<section id="techstack">
-					<h2>Tech Stack</h2>
-					<TechStackChart />
-				</section>
+				<TechStackChart />
 				<footer>
 					<p>Contact me at:</p>
 					<ul>

@@ -1,5 +1,5 @@
 .projects-section {
-  background-color: lightgray;
+  background-color: #626161;
   padding: 25px;
 }
 
@@ -51,7 +51,7 @@ h2{
   padding: 10px 15px;
   bottom: 15px;
   left: 15px;
-  background-color: #007bff;
+  background-color: #8200ce;
   color: #fff;
   text-decoration: none;
   border-radius: 4px;
@@ -60,5 +60,13 @@ h2{
 }
 
 .project-card a:hover {
-  background-color: #0056b3;
+  background-color: #5a008e;
+}
+
+body.dark-theme .project-card a{
+  background-color: #02ABFF;
+}
+
+body.dark-theme .project-card a:hover {
+  background-color: #006090;
 }
