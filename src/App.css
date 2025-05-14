@@ -76,11 +76,9 @@ footer {
   font-family: 'SourceSansPro', sans-serif;
   font-size: 50px;
   text-align: center;
+  padding-top: 70px;
 }
 
-#othertools-title {
- padding-top: 100px;
-}
 
 #othertools {
   display: flex;
