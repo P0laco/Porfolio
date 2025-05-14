@@ -1,42 +1,48 @@
+/* General Section Styling */
 .projects-section {
-  background-color: #626161;
   padding: 25px;
+  min-height: 100vh;
 }
 
+/* Grid Layout */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for larger screens */
   gap: 50px;
   padding: 50px;
 }
 
+/* Project Card Styling */
 .project-card {
   background: url('../src/assets/purpleGithubLogo.png') no-repeat center center;
   background-size: cover;
   border-radius: 30px;
-  padding: 40px 15px;
+  padding: 30px 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  width: 55%;
-  height: 200px;
+  width: 55%; /* Default width */
+  height: 250px;
   margin: 0 auto;
   font-size: 0.9rem;
   position: relative;
 }
 
+/* Dark Theme */
 body.dark-theme .project-card {
   background: url('../src/assets/GithubLogo.png') no-repeat center center;
   background-size: cover;
 }
 
+/* Hover Effects */
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
+/* Card Content */
 .project-card h3 {
   margin: 0 0 10px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bolder;
   color: #fff;
 }
@@ -64,10 +70,47 @@ body.dark-theme .project-card {
   background-color: #5a008e;
 }
 
-body.dark-theme .project-card a{
+body.dark-theme .project-card a {
   background-color: #02ABFF;
 }
 
 body.dark-theme .project-card a:hover {
   background-color: #006090;
+}
+
+/* Responsive Design */
+
+/* Medium screens (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+    gap: 30px; /* Reduce gap between cards */
+  }
+}
+
+/* Small screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr; /* 1 column for mobile landscape */
+    gap: 20px; /* Further reduce gap */
+  }
+
+  .project-card {
+    width: 80%; /* Make the card wider on smaller screens */
+  }
+}
+
+/* Extra small screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 15px; /* Reduce section padding */
+  }
+
+  .projects-grid {
+    gap: 15px; /* Reduce gap between cards */
+  }
+
+  .project-card {
+    width: 90%; /* Make the card even wider on very small screens */
+  }
 }

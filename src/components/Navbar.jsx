@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./Navbar.css"; // Import the CSS file for styling
 
 export default function Navbar() {
     const [duckImage, setDuckImage] = useState("../src/assets/blackDuck.png"); // Initial image
     const [navbarBg, setNavbarBg] = useState("#C9C9C9"); // Initial navbar background color
     const [navbarTextColor, setNavbarTextColor] = useState("black"); // Initial navbar text color
+    const [isMenuOpen, setIsMenuOpen] = useState(false); // State to toggle the hamburger menu
+    const navRef = useRef(null); // Reference to the nav element
 
     // Combined function to toggle the duck image, navbar background, and page theme
     const toggleDuckAndTheme = () => {
@@ -63,34 +65,64 @@ export default function Navbar() {
         setDuckImage("../src/assets/blackDuck.png");
     }, []); // Empty dependency array ensures this runs only once on page load
 
+    // Toggle the hamburger menu
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    // Close the menu if the user clicks outside of it or scrolls
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (navRef.current && !navRef.current.contains(event.target)) {
+                setIsMenuOpen(false); // Close the menu
+            }
+        };
+
+        const handleScroll = () => {
+            setIsMenuOpen(false); // Close the menu on scroll
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     return (
         <nav
             className="navbar"
+            ref={navRef}
             style={{
                 backgroundColor: navbarBg,
                 transition: "background-color 0.5s ease, color 0.5s ease", // Add smooth transition
             }}
         >
-            <p id="welcome">Portfolio</p>
-            <div>
-                <ul className="navlist" style={{ color: navbarTextColor }}>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#techstack">TechStack</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li>
-                        <a
-                            href="#"
-                            onClick={(event) => {
-                                event.preventDefault(); // Prevent the page from scrolling to the top
-                                toggleDuckAndTheme(); // Call the theme toggle function
-                            }}
-                        >
-                            <img src={duckImage} alt="duck" />
-                        </a>
-                    </li>
-                </ul>
+            <p id="welcome"><a href="#about">Portfolio</a></p>
+            <div className={`hamburger ${isMenuOpen ? "open" : ""}`} id="hamburger" onClick={toggleMenu}>
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
+            <ul className={`navlist ${isMenuOpen ? "expanded" : "collapsed"}`} style={{ color: navbarTextColor }}>
+                <li><a href="#aboutme">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#techstack">TechStack</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <a
+                        href="#"
+                        onClick={(event) => {
+                            event.preventDefault(); // Prevent the page from scrolling to the top
+                            toggleDuckAndTheme(); // Call the theme toggle function
+                        }}
+                    >
+                        <img src={duckImage} alt="duck" />
+                    </a>
+                </li>
+            </ul>
         </nav>
     );
 }

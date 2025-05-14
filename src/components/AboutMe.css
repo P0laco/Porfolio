@@ -1,0 +1,91 @@
+/* General Section Styling */
+.about-section {
+  background-color: #626161;
+  text-align: center;
+  font-family: 'SourceSansPro', sans-serif;
+  padding-top: 10%;
+  padding-bottom: 50px; /* Add padding for spacing */
+}
+
+/* Content Layout */
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Text Styling */
+.about-text {
+  flex: 1;
+  max-width: 600px;
+  font-size: 1.2rem;
+  color: #fff;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Image Styling */
+.about-image img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%; /* Make the image circular */
+  object-fit: cover;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+
+/* Medium screens (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .about-content {
+    flex-direction: column; /* Stack text and image vertically */
+    text-align: center; /* Center-align text */
+  }
+
+  .about-text {
+    text-align: center; /* Center-align text */
+    font-size: 1.1rem; /* Reduce font size */
+  }
+
+  .about-image img {
+    width: 200px; /* Reduce image size */
+    height: 200px;
+  }
+}
+
+/* Small screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .about-section {
+    padding-top: 5%; /* Reduce padding for smaller screens */
+    padding-bottom: 30px;
+  }
+
+  .about-text {
+    font-size: 1rem; /* Further reduce font size */
+  }
+
+  .about-image img {
+    width: 150px; /* Further reduce image size */
+    height: 150px;
+  }
+}
+
+/* Extra small screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .about-section {
+    padding-top: 5%; /* Further reduce padding */
+    padding-bottom: 20px;
+  }
+
+  .about-text {
+    font-size: 0.9rem; /* Further reduce font size */
+    line-height: 1.4; /* Adjust line height */
+  }
+
+  .about-image img {
+    width: 120px; /* Further reduce image size */
+    height: 120px;
+  }
+}

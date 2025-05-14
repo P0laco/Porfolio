@@ -144,13 +144,7 @@ export default function TechStackChart() {
 				Tech<span>Stack</span>
 			</h2>
 			<div
-				style={{
-					width: "100%",
-					height: "500px",
-					margin: "0 auto",
-					display: "flex",
-					justifyContent: "center",
-				}}
+				className="chart-container"
 			>
 				{chartData ? (
 					<Bar

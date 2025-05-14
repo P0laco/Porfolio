@@ -8,23 +8,25 @@
   src: url('./assets/font/SourceSansPro-Bold.ttf') format('truetype');
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: white;
+  font-family: 'SourceSansPro', sans-serif;
 }
 
-section{
-  height: 100vh;
+/* General Section Styling */
+section {
+  min-height: 100vh; /* Ensure the section is at least the height of the viewport */
   margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Include padding in height calculations */
 }
 
-#about{
+#about {
   margin: 0;
   padding: 0 300px;
   display: flex;
@@ -32,46 +34,55 @@ section{
   justify-content: center;
 }
 
+#techstack {
+  background-color: #626161;
+}
+
 #name {
   font-family: Patung, sans-serif;
-  font-size: larger;
-  font-size: 50px;
+  font-size: 60px;
   margin: 0;
 }
 
 h3 {
   font-family: SourceSansPro, sans-serif;
-  font-size: 20px;
+  font-size: 40px;
   margin: 0;
 }
 
 section {
   margin-bottom: 20px;
-  padding: 20px;
 }
 
 footer {
-  background-color: #626161; /* Default footer background color */
+  background-color: #626161;
+  font-family: 'SourceSansPro', sans-serif;
   text-align: center;
-  margin-top: 20px;
   padding: 10px;
 }
 
 #position {
-  font-family: SourceSansPro, sans-serif;
-  font-size: 20px;
+  font-family: 'SourceSansPro', sans-serif;
+  font-size: 35px;
   margin: 0;
 }
 
-#techstack-title, #projects-title, #othertools-title {
+#techstack-title,
+#projects-title,
+#othertools-title,
+#contact-title,
+.about-title {
   margin: 0;
-  font-family: SourceSansPro, sans-serif;
+  font-family: 'SourceSansPro', sans-serif;
   font-size: 50px;
   text-align: center;
-  padding: 50px 20px;
 }
 
-#othertools{
+#othertools-title {
+ padding-top: 100px;
+}
+
+#othertools {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,38 +99,13 @@ footer {
 }
 
 @keyframes blink {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
     opacity: 0;
   }
-}
-
-.socials {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-/* Default (light theme) */
-body.light-theme .socials svg {
-  fill: #8200CE; /* Default SVG color for light theme */
-  transition: filter 0.3s ease; /* Smooth transition for hover effect */
-}
-
-body.light-theme .socials svg:hover {
-  filter: drop-shadow(0 0 5px #8200CE); /* Change SVG color on hover for light theme */
-}
-
-/* Dark theme */
-body.dark-theme .socials svg {
-  fill: #02ABFF; /* Change SVG color to white for dark theme */
-  transition: filter 0.3s ease; /* Smooth transition for hover effect */
-}
-
-body.dark-theme .socials svg:hover {
-  filter: drop-shadow(0 0 5px #02ABFF); /* Change SVG color on hover for dark theme */
 }
 
 span {
@@ -128,8 +114,95 @@ span {
   color: #8200CE;
 }
 
-body.dark-theme span{
+body.dark-theme span {
   color: #02ABFF;
+}
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+
+/* Small screens (max-width: 768px) */
+@media (max-width: 768px) {
+  #about {
+    padding: 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #name {
+    font-size: 40px;
+  }
+
+  h3 {
+    font-size: 30px;
+  }
+
+  #position {
+    font-size: 25px;
+  }
+
+  #techstack-title,
+  #projects-title,
+  #othertools-title,
+  #contact-title,
+  .about-title {
+    font-size: 40px;
+  }
+
+  #othertools {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .chart-container {
+    width: 90%; /* Adjust width for smaller screens */
+    height: auto;
+  }
+}
+
+/* Extra small screens (max-width: 480px) */
+@media (max-width: 480px) {
+  #about {
+    padding: 10px;
+  }
+
+  #name {
+    font-size: 30px;
+  }
+
+  h3 {
+    font-size: 25px;
+  }
+
+  #position {
+    font-size: 20px;
+  }
+
+  #techstack-title,
+  #projects-title,
+  #othertools-title,
+  #contact-title,
+  .about-title {
+    font-size: 30px;
+  }
+
+  #othertools {
+    gap: 5px;
+  }
+
+  .chart-container {
+    width: 100%; /* Full width for extra small screens */
+    height: auto;
+  }
 }
 
 

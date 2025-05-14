@@ -1,0 +1,166 @@
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url('./assets/font/SourceSansPro-Bold.ttf') format('truetype');
+}
+
+/* General Section Styling */
+.contact-section {
+  font-family: 'SourceSansPro', sans-serif;
+  padding: 50px;
+  text-align: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Form Styling */
+.contact-form {
+  padding: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  color: white;
+  grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+  grid-gap: 20px; /* Space between grid items */
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  font-family: 'SourceSansPro', sans-serif;
+  font-size: 17px;
+  color: #999;
+  font-style: italic;
+}
+
+/* Form Group Styling */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input {
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px;
+  border: none;
+  color: white;
+  background-color: #282828;
+}
+
+body.dark-theme .form-group input {
+  background-color: #333;
+  color: white;
+}
+
+body.dark-theme .contact-form textarea {
+  background-color: #333;
+  color: white;
+}
+
+/* Make the textarea span both columns */
+.contact-form textarea {
+  font-family: 'SourceSansPro', sans-serif;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  grid-column: 1 / -1;
+  resize: none;
+  background-color: #282828;
+}
+
+/* Submit Button Styling */
+.submit-button {
+  grid-column: 1 / -1; /* Span both columns */
+  justify-self: center; /* Center the button */
+  margin: 20px 0;
+  padding: 12px 35px;
+  background-color: #8200ce;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'SourceSansPro', sans-serif;
+}
+
+.submit-button:hover {
+  background-color: #5e009e;
+}
+
+body.dark-theme .submit-button {
+  background-color: #02ABFF;
+  color: white;
+}
+
+body.dark-theme .submit-button:hover {
+  background-color: #006090;
+  color: white;
+}
+
+/* Responsive Design */
+
+/* Medium screens (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .contact-form {
+    grid-template-columns: 1fr; /* Single column for medium screens */
+    padding: 30px; /* Reduce padding */
+  }
+
+  .contact-form textarea {
+    font-size: 14px; /* Reduce font size */
+  }
+
+  .submit-button {
+    font-size: 14px; /* Reduce button font size */
+    padding: 10px 30px; /* Adjust button padding */
+  }
+}
+
+/* Small screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 30px; /* Reduce section padding */
+  }
+
+  .contact-form {
+    grid-gap: 15px; /* Reduce gap between form elements */
+  }
+
+  .form-group input {
+    padding: 8px; /* Reduce input padding */
+  }
+
+  .contact-form textarea {
+    font-size: 13px; /* Further reduce font size */
+  }
+
+  .submit-button {
+    font-size: 13px; /* Further reduce button font size */
+    padding: 8px 25px; /* Adjust button padding */
+  }
+}
+
+/* Extra small screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 20px; /* Further reduce section padding */
+  }
+
+  .contact-form {
+    grid-gap: 10px; /* Further reduce gap between form elements */
+  }
+
+  .form-group input {
+    padding: 6px; /* Further reduce input padding */
+  }
+
+  .contact-form textarea {
+    font-size: 12px; /* Further reduce font size */
+  }
+
+  .submit-button {
+    font-size: 12px; /* Further reduce button font size */
+    padding: 6px 20px; /* Adjust button padding */
+  }
+}

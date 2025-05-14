@@ -1,59 +1,207 @@
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: inherit;
-    z-index: 1000;
-    padding: 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 30px;
-    font-family: 'SourceSansPro', sans-serif;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: inherit;
+  z-index: 1000;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  font-family: 'SourceSansPro', sans-serif;
+}
 
-li img{
-    width: 30px;
-    height: 30px;
-    margin-right: 5px;
-  }
+.navbar p a {
+  color: #333;
+  font-weight: bolder;
+}
 
-  .navlist {
-    display: flex;
-    gap: 25px;
-    list-style: none;
-    padding-right: 150px;
-  }
+.navbar p a:hover {
+  color: #8200CE;
+}
 
-  .navlist li a {
-    color: #333;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bolder;
-    text-decoration: none;
-  }
+body.dark-theme .navbar p a {
+  color: white;
+  transition: color 0.3s ease;
+}
 
-  .navlist li {
-    transition: color 0.3s ease;
-  }
+body.dark-theme .navbar p a:hover {
+  color: #02ABFF;
+}
 
-  .navlist li:hover a{
-    color: #8200CE;
-  }
+li img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
 
-  #welcome {
+/* Default Navbar Styling */
+.navlist {
+  display: flex; /* Show navbar content by default */
+  gap: 25px;
+  list-style: none;
+  padding-right: 150px;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.navlist li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.navlist li {
+  transition: color 0.3s ease;
+}
+
+.navlist li:hover a {
+  color: #8200CE;
+}
+
+.hamburger {
+  display: none; /* Hide hamburger by default */
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  position: absolute; /* Position the hamburger menu */
+  top: 20px; /* Adjust the vertical position */
+  right: 20px; /* Adjust the horizontal position */
+  z-index: 1001; /* Ensure it appears above other elements */
+  transition: transform 0.3s ease;
+}
+
+.hamburger div {
+  width: 30px;
+  height: 3px;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+body.dark-theme .hamburger div {
+  background-color: white;
+}
+
+.hamburger.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px); /* Top bar rotates */
+}
+
+.hamburger.open div:nth-child(2) {
+  opacity: 0; /* Middle bar disappears */
+}
+
+.hamburger.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px); /* Bottom bar rotates */
+}
+
+#welcome {
   font-family: Patung, sans-serif;
   font-size: 50px;
   padding-left: 20px;
   padding-top: 10px;
 }
 
-  body.dark-theme .navlist li a {
-    color: white;
-    transition: color 0.3s ease;
+body.dark-theme .navlist li a {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+body.dark-theme .navlist li:hover a {
+  color: #02ABFF;
+}
+
+/* Responsive Design */
+
+/* Medium screens (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 20px;
   }
 
-  body.dark-theme .navlist li:hover a{
-    color: #02ABFF;
+  .navlist {
+    display: flex; /* Hide navbar content by default */
   }
+
+
+  .navlist li a {
+    font-size: 18px; /* Reduce font size */
+  }
+
+  #welcome {
+    font-size: 40px; /* Reduce welcome text size */
+  }
+
+}
+
+/* Small screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack navbar items vertically */
+    align-items: flex-start; /* Align items to the left */
+    padding: 15px;
+    height: 50px;
+  }
+
+.navlist.collapsed{
+  transform: translateX(100%); /* Slide out */
+  opacity: 0; /* Fade out */
+}
+
+.navlist.expanded {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  position: absolute; /* Position the expanded menu */
+  top: 70px; /* Adjust to appear below the navbar */
+  right: 20px; /* Align to the right */
+  transform: translateX(0); /* Slide in */
+  opacity: 1; /* Fade in */
+}
+
+    .hamburger {
+    display: flex; /* Show hamburger menu */
+  }
+
+  .navlist {
+    flex-direction: column; /* Stack nav items vertically */
+    gap: 10px; /* Reduce gap between items */
+    padding-right: 0; /* Remove right padding */
+  }
+
+  .navlist li a {
+    font-size: 16px; /* Further reduce font size */
+  }
+
+  #welcome {
+    font-size: 30px; /* Further reduce welcome text size */
+    padding-left: 0; /* Remove left padding */
+  }
+}
+
+/* Extra small screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .navlist {
+    gap: 5px; /* Further reduce gap */
+  }
+
+  .navlist li a {
+    font-size: 14px; /* Further reduce font size */
+  }
+
+  #welcome {
+    font-size: 30px; /* Further reduce welcome text size */
+  }
+
+  li img {
+    width: 20px; /* Reduce image size */
+    height: 20px;
+  }
+}

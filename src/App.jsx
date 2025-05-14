@@ -4,6 +4,8 @@ import Projects from "./components/Projects.jsx";
 import Welcome from "./components/Welcome.jsx";
 import Navbar from "./components/Navbar.jsx";
 import TechStackChart from "./components/TechStackChart.jsx";
+import Contact from "./components/Contact.jsx";
+import AboutMe from "./components/AboutMe.jsx";
 
 function App() {
 	return (
@@ -11,20 +13,14 @@ function App() {
 			<Navbar />
 			<div>
 				<Welcome />
+				<AboutMe />
 				<Projects />
 				<TechStackChart />
+				<Contact />
 				<footer>
-					<p>Contact me at:</p>
-					<ul>
-						<li>Email: me@me.com</li>
-						<li>Phone: 123-456-7890</li>
-						<li>
-							LinkedIn: <a href="#">Your LinkedIn</a>
-						</li>
-						<li>
-							GitHub: <a href="#">Your GitHub</a>
-						</li>
-					</ul>
+					<div className="footer-content">
+						<p>Copyright© 2025 Miguel Pereira. All rights reserved.</p>
+					</div>
 				</footer>
 			</div>
 		</>

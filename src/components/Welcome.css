@@ -1,0 +1,161 @@
+/* General Section Styling */
+.welcome-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  min-height: 100vh;
+}
+
+/* Content Layout */
+.welcome-content {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  gap: 30px; /* Add spacing between text and image */
+}
+
+/* Text Styling */
+.welcome-text {
+  flex: 1;
+  text-align: left;
+}
+
+.welcome-text h3 {
+  font-size: 1.5rem;
+}
+
+.welcome-text h2 {
+  font-size: 2.5rem;
+}
+
+.welcome-text p {
+  font-size: 1.2rem;
+}
+
+.socials {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  list-style: none;
+}
+
+.socials a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Image Styling */
+.welcome-image img {
+  width: 550px;
+  height: 550px;
+  border-radius: 50%; /* Make the image circular */
+  object-fit: cover;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Light Theme */
+body.light-theme .socials svg {
+  fill: #8200CE; /* Default SVG color for light theme */
+  transition: filter 0.3s ease; /* Smooth transition for hover effect */
+}
+
+body.light-theme .socials svg:hover {
+  filter: drop-shadow(0 0 5px #8200CE); /* Change SVG color on hover for light theme */
+}
+
+/* Dark Theme */
+body.dark-theme .socials svg {
+  fill: #02ABFF; /* Change SVG color to white for dark theme */
+  transition: filter 0.3s ease; /* Smooth transition for hover effect */
+}
+
+body.dark-theme .socials svg:hover {
+  filter: drop-shadow(0 0 5px #02ABFF); /* Change SVG color on hover for dark theme */
+}
+
+/* Responsive Design */
+
+/* Medium screens (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .welcome-content {
+    flex-direction: column; /* Stack text and image vertically */
+    text-align: center; /* Center-align text */
+    gap: 20px; /* Reduce spacing between text and image */
+  }
+
+  .welcome-text {
+    text-align: center; /* Center-align text */
+  }
+
+  .welcome-text h3 {
+    font-size: 1.3rem; /* Reduce font size */
+  }
+
+  .welcome-text h2 {
+    font-size: 2rem; /* Reduce font size */
+  }
+
+  .welcome-text p {
+    font-size: 1rem; /* Reduce font size */
+  }
+
+  .welcome-image img {
+    width: 400px; /* Reduce image size */
+    height: 400px;
+  }
+}
+
+/* Small screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .welcome-section {
+    padding: 20px; /* Reduce padding */
+  }
+
+  .welcome-text h3 {
+    font-size: 1.2rem; /* Further reduce font size */
+  }
+
+  .welcome-text h2 {
+    font-size: 1.8rem; /* Further reduce font size */
+  }
+
+  .welcome-text p {
+    font-size: 0.9rem; /* Further reduce font size */
+  }
+
+  .welcome-image img {
+    width: 300px; /* Further reduce image size */
+    height: 300px;
+  }
+}
+
+/* Extra small screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .welcome-section {
+    padding: 10px; /* Further reduce padding */
+  }
+
+  .welcome-text h3 {
+    font-size: 1rem; /* Further reduce font size */
+  }
+
+  .welcome-text h2 {
+    font-size: 1.5rem; /* Further reduce font size */
+  }
+
+  .welcome-text p {
+    font-size: 0.8rem; /* Further reduce font size */
+  }
+
+  .welcome-image img {
+    width: 200px; /* Further reduce image size */
+    height: 200px;
+  }
+
+  .socials {
+    flex-direction: column; /* Stack social icons vertically */
+    gap: 10px; /* Reduce gap between icons */
+  }
+}
